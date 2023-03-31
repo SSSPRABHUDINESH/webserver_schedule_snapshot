@@ -10,7 +10,7 @@ terraform {
 
 provider "google" {
   credentials = file("credentials.json")
-  project = "playground-s-11-dae83aae"
+  project = "playground-s-11-49492a63"
   region  = "us-central1"
 }
 
@@ -45,7 +45,7 @@ resource "google_compute_resource_policy" "webserver-snapshot-policy" {
   snapshot_schedule_policy {
    
     snapshot_properties {
-      guest_flush = true
+      guest_flush = false
       labels = {
         env = "production"
       }
@@ -57,7 +57,7 @@ resource "google_compute_resource_policy" "webserver-snapshot-policy" {
 #    }
     hourly_schedule {
       hours_in_cycle = 1
-      start_time = "17:00"
+      start_time = "09:00"
     }
   }
   retention_policy {
